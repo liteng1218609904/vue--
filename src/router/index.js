@@ -18,23 +18,39 @@ export default new VueRouter({
   routes:[
     {
       path:'/home',
-      component:Home
+      component:Home,
+      meta: {
+        showFooter: true  // 标识NavFooter组件是否显示
+      }
     },
     {
       path:'/topic',
-      component:Topic
+      component:Topic,
+      meta: {
+        showFooter: true  // 标识NavFooter组件是否显示
+      }
     },
     {
       path:'/list',
-      component:List
+      component:List,
+      meta: {
+        showFooter: true  // 标识NavFooter组件是否显示
+      }
     },
     {
       path:'/shopCart',
-      component:ShopCart
+      component:ShopCart,
+      meta: {
+        showFooter: true  // 标识NavFooter组件是否显示
+      }
     },
     {
       path:'/personal',
       component:Personal
+    },
+    {
+      path: '/',
+      redirect: '/home'
     }
 
 

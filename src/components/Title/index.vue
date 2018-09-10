@@ -17,4 +17,6 @@
     text-align center
     background #ffffff
     color #333333
+    width 100%
+
 </style>

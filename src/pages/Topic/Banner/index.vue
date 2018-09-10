@@ -65,7 +65,7 @@
       .swiper-wrapper
         width 1500px
         .swiper-slide
-          width 100%
+          width 335px
           height 192px
           a
             display block

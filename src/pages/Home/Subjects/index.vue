@@ -7,7 +7,7 @@
       </a>
     </header>
     <div class="subjects">
-      <swiper class="swiper-wrapper" >
+      <div class="swiper-wrapper" >
         <div class="swiper-slide"  v-for="(item,index) in data" :key="index">
           <img v-lazy="item.itemPicUrl" alt="">
           <div class="line">
@@ -16,14 +16,12 @@
           </div>
           <div class="desc  ellipsis">{{item.subtitle}}</div>
         </div>
-      </swiper>
+      </div>
     </div>
   </section>
 </template>
-
 <script>
   import BScorll from 'better-scroll'
-
   export default {
     props: {
       data: Array

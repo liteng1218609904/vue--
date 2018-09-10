@@ -1,6 +1,6 @@
 <template>
 <div class="recommend">
-  <Title :title="data.name"></Title>
+  <Title :title="data.name"/>
   <div class="itemMajor">
     <a href="javascript:;">
       <img v-lazy="data.Item[0].picUrl" alt="">
@@ -47,9 +47,9 @@
   </div>
 </div>
 </template>
-
 <script>
   import Title from '../../../components/Title'
+
   export default {
     components: {
       Title
