@@ -1,5 +1,5 @@
 <template>   <!--轮播图-->
-  <div  class="wapper">
+  <div  class="wapper"  v-if="data" >
     <div  class="swiper-container">
       <div class="swiper-wrapper">
         <div  class="swiper-slide"  v-for="(item, index) in data" :key="index">
@@ -18,6 +18,7 @@
   </div>
 </template>
 <script>
+  import {mapState} from 'vuex'
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'
 
@@ -27,12 +28,13 @@
 
       }
     },
+
     props: {
       data: Array
     },
 
-    watch: {
-      data() {
+
+    mounted () {   /*页面加载完成之后执行mounted，一般轮播图，回弹放在mounted中执行*/
         this.$nextTick(() => {
           new Swiper('.swiper-container', {
             loop: true,
@@ -44,13 +46,9 @@
             },
           })
         })
-
-      }
     },
-
-
-
   }
+
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   @import '../../../common/stylus/mixins.styl'

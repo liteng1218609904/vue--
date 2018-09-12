@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div  class="home">
+      <Masklayer/>
       <span class="goTop"><span></span></span>
       <section  class="head">
         <header >
@@ -104,6 +105,7 @@
   import GoodsList from  './GoodsList'
   import Subjects from './Subjects'
   import GoodsShow from './GoodsShow'
+  import Masklayer from '../../components/Masklayer/Masklayer.vue'
 
   export default {
     data() {
@@ -123,7 +125,8 @@
       ListScroll,
       GoodsList,
       Subjects,
-      GoodsShow
+      GoodsShow,
+      Masklayer
     },
 
   }

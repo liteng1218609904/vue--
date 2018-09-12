@@ -125,6 +125,7 @@
             height 19px
             font-size 16px
             margin-right 15px
+            width 185px
         .line2
           .cont
             font-size 12px

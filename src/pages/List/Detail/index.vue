@@ -1,7 +1,7 @@
 <template><!--分类-->
-  <div class="listDetail" ref="scroll" :class="{'anim' : anim === true}"
-       v-if="navDetail.subCateList">   <!--当有数据的时候在执行--><!--因为navDetail.subCateList为navData里面的为3点连用-->
-    <div class="warp">
+  <div class="listDetail" ref="scroll"
+       v-if="navDetail">   <!--当有数据的时候在执行--><!--因为navDetail.subCateList为navData里面的数据为3层连用-->
+    <div class="warp">  <!--一般都要给 v-if="navDetail"为外层数据，有数据的时候再执行，若navDetail.subCateList就报错-->
       <div class="banner">
         <img v-lazy="navDetail.wapBannerUrl" alt="">
       </div>
@@ -28,16 +28,13 @@
   import {mapState} from 'vuex'
   import BScroll from 'better-scroll'
   export default {
-    props:{
-      navData: Array
-    },
     data () {
       return {
         anim: false
       }
     },
-    mounted () {
-      this.$store.dispatch('getNavDetail', () => {
+    mounted () {     /*通过监视获取的数据*/
+      this.$store.dispatch('getNavDetail', () => {  /*dispatch后有回调，对应的action中要加  callback && callback()*/
         this.$nextTick(() => {
           this.scroll = new BScorll (this.$refs.scroll, {
             scrollY: true,
@@ -51,7 +48,7 @@
     computed: {
       ...mapState(['navDetail'])
     },
-    watch: {
+    /*watch: {
       navDetail: function () {
         this.anim = true
         this.timer = setTimeout(() => {
@@ -59,7 +56,7 @@
           this.anim = false
         }, 800)
       }
-    }
+    }*/
   }
 
 </script>
@@ -124,7 +121,7 @@
             margin-right 17px
             font-size 0
             width 72px
-            vertical-align top
+            vertifcal-align top
             &:nth-child(3n)
               margin-right -5px
             >a

@@ -23,7 +23,8 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   .MoveWonderful
-    margin 0 15px 15px
+
+    background-color #fafafa
     .moveTit
       height 70px
       display flex
@@ -49,7 +50,7 @@
       padding 12px
       background #ffffff
       color #333333
-      margin-bottom 15px
+      margin 15px
       >img
         width 321px
         height 180px

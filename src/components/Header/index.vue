@@ -11,7 +11,7 @@
             <i ></i>
           </a>
         </div>
-        <div class="cart">
+        <div class="cart"  @click="$router.push('/shopCart')">
           <a href="javascript:;">
             <i></i>
           </a>
@@ -23,6 +23,7 @@
 
 <script>
   export default {
+
 
   }
 </script>

@@ -22,9 +22,8 @@
       this.$store.dispatch('getNavData')
     },
     computed: {
-      ...mapState(['navData'])
+      ...mapState(['navData']) /*['navData']为="navData"*/
     },
-
 
     components:{
       Search,

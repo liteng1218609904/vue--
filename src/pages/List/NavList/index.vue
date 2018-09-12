@@ -1,7 +1,7 @@
 <template>
   <div class="listMenu" v-if="navData"> <!--v-if="navData一般都得判断，有数据就执行-->
     <div class="inner" ref="scroll">
-      <ul>
+      <ul>        <!--  this.navIndex = index 中的navIndex-->    <!--先定义状态，自己用，不用设成公共state,定义为data状态-->
         <li class="item" :class="{'active' : navIndex === index}"
             v-for="(item, index) in navData"
             :key="index" @click="currentIndex(index)">
@@ -11,10 +11,10 @@
     </div>
   </div>
 </template>
-
 <script>
   import {mapState} from 'vuex'
   import BScorll from 'better-scroll'
+  /*整体思路，当有数据的时候，执行回弹，然后默认当前index再第一个上，然后调用action去，显示当前下标对应的数据*/
   export default {
     data(){
       return{
@@ -22,7 +22,6 @@
       }
     },
     mounted(){
-      this.$store.dispatch('setNavIndex', 0)  /*让初始的下标状态为0，就在第一个上*/
       if (!this.navData){  /*没有数据就返回，有数据就执行回弹*/
         return
       }
@@ -31,8 +30,8 @@
     watch:{
       navData (){   /*通过监视navData数据，再执行回弹*/
         this._initData()
-        this.$store.dispatch('setNavIndex', 0)
-      }
+        this.$store.dispatch('setNavIndex', 0)   /*当有值的时候，请求回来数据，再调用action*/
+      }   /*让初始的下标状态为0，红杠就在第一个上*/
     },
 
     computed: {
@@ -42,7 +41,7 @@
     methods: {
       currentIndex (index) {
           this.$store.dispatch('setNavIndex', index) /*将index传给action,调用mutation直接更新*/
-          this.navIndex = index   /*将当前点击的index赋给navIndex*/
+          this.navIndex = index   /*将navIndex状态变为当前点击的index*/
       },
       _initData(){
         this.$nextTick(() => {

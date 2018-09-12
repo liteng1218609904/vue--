@@ -1,6 +1,13 @@
 <template>
   <div class="topic">
     <Header/>
+    <div class="maoD">
+      <a href="javaScript:;" @click="goToTop(0, 0, 500)">
+        <div>
+          <i class="iconfont icon-arrowup"></i>
+        </div>
+      </a>
+    </div>
     <Banner :data="topicData.banner"/>
     <TopicList :data="topicData.column"/>
     <Recommend :data="topicData.recommend"/>
@@ -22,7 +29,6 @@
       </a>
     </section>
     <MoveWonderful :data="topicData.yxWeek"/>
-
   </div>
 </template>
 <script>
@@ -39,6 +45,32 @@
     data() {
       return {}
     },
+
+    methods: {
+      currentIndex(index) {
+        this.current = index
+      },
+
+      _initScroll() {
+        new BScroll('.betterScroll', {
+          click: true,
+          scrollX: true, // 水平滑动
+        })
+      },
+      goToTop(x, y, time, easing){
+        console.log('-------------',this)
+        this.bscroll.scrollTo(x, y, time, easing)
+      },
+      backTop() {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+      }
+    },
+
+
+
+
+
 
 
 
@@ -99,4 +131,24 @@
         color #7f7f7f
         line-height 1.6
         padding 5px 15px 10px
+
+  .maoD
+    position fixed
+    bottom 55px
+    right 10px
+    z-index 20
+    div
+      width 50px
+      height 50px
+      line-height 50px
+      text-align center
+      border-radius 50%
+      background: #fff
+      .iconfont
+        color #aaa
+        font-size 35px
+
+
+
+
 </style>

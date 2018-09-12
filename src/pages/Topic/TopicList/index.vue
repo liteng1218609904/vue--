@@ -26,6 +26,8 @@
       data: Array
     },
 
+
+
     mounted () {
       this.$nextTick(() => {    /*确保数据回来*/
         this.scroll = new BScorll ('.topicList', {  /*wrapper父容器*/
@@ -90,5 +92,6 @@
           line-height 1
           text-align center
           height 15px
+          width  84px
 
 </style>

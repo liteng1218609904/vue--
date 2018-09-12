@@ -7,6 +7,7 @@ import './mock/mockServer' // 加载mockServer
 import VueLazyload from 'vue-lazyload'
 import loading from './asssets/images/loading.gif'
 
+
 Vue.use(VueLazyload, {
   loading
 })
